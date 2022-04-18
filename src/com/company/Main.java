@@ -26,7 +26,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int even = 0;
         int odd = 0;
-
+        long timeStart;
         while (true) {
             try {
                 System.out.print("Type in number from 1+ : ");
@@ -34,12 +34,17 @@ public class Main {
                 if (number.intValue() <= 0) {
                     throw new IllegalArgumentException();
                 }
+                timeStart = System.currentTimeMillis();
                 collatzConjecture(number, odd, even);
                 break;
             } catch (InputMismatchException e) {
                 scanner = new Scanner(System.in);
                 System.out.print("Incorrect input!\n");
+            } catch (IllegalArgumentException e){
+                System.out.println("Too big!");
             }
         }
+        long timeFinish = System.currentTimeMillis();
+        System.out.println("Time: " + (timeFinish - timeStart) + " мілісекунд.");
     }
 }
