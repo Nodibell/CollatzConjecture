@@ -32,7 +32,7 @@ public class Main {
                 System.out.print("Type in number from 1+ : ");
                 BigInteger number = scanner.nextBigInteger();
                 if (number.intValue() <= 0) {
-                    throw new IllegalArgumentException();
+                    throw new InputMismatchException();
                 }
                 timeStart = System.currentTimeMillis();
                 collatzConjecture(number, odd, even);
